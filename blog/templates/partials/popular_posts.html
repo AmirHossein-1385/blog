@@ -1,0 +1,38 @@
+{% extends 'parent/base.html' %}
+{% load jformat %}
+{% load i18n %}
+{% load static %}
+{% load blog_tags %}
+{% block title %}Popular Posts{% endblock %}
+{% block content %}
+<div class="popular-container">
+    <h1 class="popular-title">🔥 Most Popular Posts</h1>
+    <div class="popular-grid">
+        {% for post in posts %}
+        <div class="popular-card">
+            {% if post.images.first %}
+                <img src="{{ post.images.first.image_file.url }}" alt="{{ post.title }}">
+            {% else %}
+                <div class="no-image">
+                    No Image
+                </div>
+            {% endif %}
+            <div class="popular-body">
+                <h2>{{ post.title }}</h2>
+                <p>
+                    {{ post.description|truncatewords:20 }}
+                </p>
+                <div class="popular-footer">
+                    <span>💬 {{ post.comments.count }} Comments</span>
+                    <a href="{{ post.get_absolute_url }}">
+                        Read More →
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no_post">No popular posts found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

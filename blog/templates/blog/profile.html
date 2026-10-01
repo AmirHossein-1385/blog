@@ -1,0 +1,42 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+{% block title %}profile{% endblock %}
+{% block content %}
+    <p class="new_post"><a href="{% url 'blog:create_post' %}">ایجاد پست جدید</a></p>
+    <table class="profile_table">
+        <tr>
+            <th>ردیف</th>
+            <th>عنوان</th>
+            <th>تاریخ انتشار</th>
+            <th>وضعیت</th>
+            <th>ویرایش</th>
+            <th>حذف</th>
+        </tr>
+        {% for post in posts %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></td>
+                <td>{{ post.created|date:"Y-m-d-H:i"}}</td>
+                <td>{{ post.status }}</td>
+               <td>
+                   <a href="{% url 'blog:edit_post' post.id %}" class="edit_btn">✏️</a>
+                </td>
+                <td>
+                    <a href="{% url 'blog:delete_post' post.id %}" class="delete_btn">🗑️</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <form action="{% url 'blog:logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="exit">
+        خروج
+    </button>
+    </form>
+    <div class="profile_links">
+        <a class="password-change" href="{% url 'blog:password_change' %}">تغییر پسورد</a>
+        <a class="password-edit" href="{% url 'blog:edit_account' %}">ویرایش اطلاعات</a>
+    </div>
+    {% include 'partials/pagination.html' with page=posts %}
+{% endblock %}

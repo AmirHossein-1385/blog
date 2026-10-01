@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-25 19:58+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\blog\templates\partials\header.html:87
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\blog\templates\partials\header.html:88
+msgid "Personal Information"
+msgstr "اطلاعات شخصی"
+
+#: .\blog\templates\partials\header.html:89
+msgid "Logout"
+msgstr "خروج"
+
+#: .\blog\templates\partials\header.html:93
+msgid "Login"
+msgstr "ورود"
+
+#: .\blog\templates\partials\header.html:96
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: .\blog\templates\partials\latest_posts.html:4
+#, fuzzy
+#| msgid "My Posts"
+#: .\blog\templates\partials\latest_posts.html:17
+msgid "Latest Posts"
+msgstr "اخرین پست ها"
+msgid "View all posts"
+msgstr "مشاهده همه پست ها"
+
+#~ msgid "Statistics"
+#~ msgstr "امار"

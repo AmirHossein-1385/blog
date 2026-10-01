@@ -1,0 +1,51 @@
+{% extends 'parent/base.html' %}
+{% block title %}Ticket form{% endblock %}
+{% block content %}
+
+<div class="contact-container">
+
+    <div class="contact-header">
+        <h1>Submit a Ticket</h1>
+        <p>
+            If you have a problem or need support, please fill out the form below and provide the necessary details so we can review your request.
+        </p>
+    </div>
+
+    <div class="contact-form">
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="ticket-form">
+                {{ form.as_p }}
+            </div>
+
+            <input type="submit" value="Submit Ticket" class="contact-btn">
+        </form>
+
+        {% if form.errors %}
+            <div class="form-errors">
+                <p>Please correct the following errors:</p>
+
+                {% for field in form %}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <p>{{ field.label }} : {{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            <div class="form-errors">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

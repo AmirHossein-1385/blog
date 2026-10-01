@@ -1,0 +1,10 @@
+{% load jformat %}
+<div>
+    <h2>اولین پست ها</h2>
+    {% for post in f_posts %}
+        <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> {{ post.publish |jformat:"%Y/%m/%d-%H:%M"}}</p>
+
+    {% empty %}
+        پستی وجود ندارد
+    {% endfor %}
+</div>

@@ -1,0 +1,133 @@
+{% load i18n %}
+{% load static %}
+{#<div>#}
+{#    <form action="{% url 'set_language' %}" method="post"></form>#}
+{#    {% csrf_token %}#}
+{#    <select name="language" onchange="this.form.submit()">#}
+{#        <option value="en">English</option>#}
+{#        <option value="fa">فارسی</option>#}
+{#    </select>#}
+{#</div>#}
+<header class="header">
+    <div class="container">
+        <section class="header_top">
+            <nav class="nav">
+                <div class="header_left">
+                    <img src="{% static 'images/feather-icon.svg' %}" alt="feather" class="feather_logo"></img>
+                    <h2 class="h2_logo">Blog</h2>
+                    <div class="header_menu">
+                        <a href="{% url 'blog:index' %}" class="Home">Home</a>
+                        <li class="dropdown-categories">
+                            <a href="">Categories</a>
+                            <ul class="dropdown-categories-options">
+                                <li><a href="{% url 'blog:post_list_category' 'تکنولوژی' %}">تکنولوژی</a></li>
+                                <li><a href="{% url 'blog:post_list_category' 'زبان برنامه نویسی' %}">زبان برنامه نویسی</a></li>
+                                <li><a href="{% url 'blog:post_list_category' 'هوش مصنوعی' %}">هوش مصنوعی</a></li>
+                                <li><a href="{% url 'blog:post_list_category' 'بلاکچین' %}">بلاکچین</a></li>
+                                <li><a href="{% url 'blog:post_list_category' 'سایر' %}">سایر</a></li>
+                            </ul>
+                        </li>
+                        <a href="{% url 'blog:popular_posts' %}">Popular</a>
+                        <a href="{% url 'blog:contact' %}">Contact</a>
+                        <a href="{% url 'blog:about' %}">About</a>
+                        <div class="language_switcher">
+{#                            <div class="language_switcher">#}
+{#                                🌐#}
+{#                                <form id="lang-en-form" action="{% url 'set_language' %}" method="post" style="display:inline;">#}
+{#                                {% csrf_token %}#}
+{#                                <input type="hidden" name="language" value="English">#}
+{#                                <button type="submit" class="EN">English</button>#}
+{#                                </form>#}
+{##}
+{#                                <span class="I">|</span>#}
+{##}
+{#                                <form id="lang-fa-form" action="{% url 'set_language' %}" method="post" style="display:inline;">#}
+{#                                    {% csrf_token %}#}
+{#                                    <input type="hidden" name="language" value="Fa">#}
+{#                                    <button type="submit" class="FA">فارسی</button>#}
+{#                                </form>#}
+{##}
+{#                            </div>#}
+                            {% get_current_language as LANGUAGE_CODE %}
+                            🌐
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="en">
+                                <button
+                                    class="language-btn {% if LANGUAGE_CODE == 'en' %}active-language{% endif %}">
+                                    EN
+                                </button>
+                            </form>
+                            <span class="I">
+                                │
+                            </span>
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="language" value="fa">
+                                <button
+                                        class="language-btn {% if LANGUAGE_CODE == 'fa' %}active-language{% endif %}">
+                                        FA
+                                </button>
+                            </form>
+                                </div>
+{#                            <div class="Login_user">#}
+{#                                {% if request.user.is_authenticated %}#}
+{#                                    <div class="Login">#}
+{#                                        <a href="#">{{ request.user.first_name|default:request.user.username }}</a>#}
+{#                                    </div>#}
+{#                                {% else %}#}
+{#                                    <div class="Login">#}
+{#                                        <a href="{% url 'blog:login' %}">Login</a>#}
+{#                                    </div>#}
+{#                                {% endif %}#}
+{#                                <div class="message">#}
+{#                                    {% if messages %}#}
+{#                                        {% for message in messages%}#}
+{#                                            {{ message }}#}
+{#                                        {% endfor %}#}
+{#                                    {% endif %}#}
+{#                                </div>#}
+{#                            </div>#}
+                                <div class="profile-menu">
+                                {% if request.user.is_authenticated %}
+                                    <button  type="button" class="profile-btn">
+                                        {{ request.user.first_name|default:request.user.username}}▼
+                                    </button>
+                                    <div class="dropdown">
+                                    <a href="{% url 'blog:profile' %}">{% trans "Profile" %}</a>
+                                    <a href="{% url 'blog:user_information' user.id %}">{% trans "Personal Information" %}</a>
+                                    <a href="{% url 'blog:logout' %}">{% trans "Logout" %}</a>
+                                    </div>
+                                {% else %}
+                                    <a href="{% url 'blog:login' %}" class="login-link">
+                                        {% trans "Login" %}
+                                    </a>
+                                    <a href="{% url 'blog:register' %}" class="signup-btn">
+                                        {% trans "Sign Up" %}
+                                    </a>
+                                {% endif %}
+
+                            </div>
+                            <div class="message">
+                                    {% if messages %}
+                                        {% for message in messages%}
+                                            {{ message }}
+                                        {% endfor %}
+                                    {% endif %}
+                            </div>
+                        <div>
+                             <form class="search_form" action="{% url 'blog:post_search' %}">
+                            <input type="text" name="query" placeholder="Search articles..." class="search">
+                            <button type="submit" class="search_btn">🔍</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </nav>
+        </section>
+
+    </div>
+
+</header>

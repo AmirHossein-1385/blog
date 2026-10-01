@@ -1,0 +1,120 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+
+    <div class="about-text">
+        <h1>About This Blog</h1>
+
+        <p>
+            Welcome to my blog! This website is dedicated to sharing knowledge
+            about programming, web development, Python, Django, and modern
+            technologies through practical and easy-to-understand articles.
+        </p>
+
+        <a href="{% url 'blog:contact' %}" class="about-btn">
+            Contact Me
+        </a>
+    </div>
+
+    <div class="about-image">
+        <img src="{% static 'images/python-django.jpg' %}" alt="About">
+    </div>
+
+</section>
+
+
+<section class="mission">
+
+    <h2>Our Mission</h2>
+
+    <p>
+        My mission is to help developers learn through practical examples,
+        share programming knowledge, and document my own learning journey.
+    </p>
+
+</section>
+
+
+<section class="topics">
+
+    <h2>What You'll Find</h2>
+
+    <div class="topic-list">
+
+        <div class="topic-card">
+            <h3>Python</h3>
+            <p>Python tutorials and tips.</p>
+        </div>
+
+        <div class="topic-card">
+            <h3>Django</h3>
+            <p>Building web applications with Django.</p>
+        </div>
+
+        <div class="topic-card">
+            <h3>Web Development</h3>
+            <p>Frontend and backend development.</p>
+        </div>
+
+        <div class="topic-card">
+            <h3>AI</h3>
+            <p>Artificial Intelligence and modern tools.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about-me">
+
+    <h2>About Me</h2>
+
+    <p>
+        Hi! I'm Amirhossein, a backend developer who enjoys building web
+        applications using Python and Django. I love learning new technologies,
+        solving problems, and sharing my knowledge with others.
+    </p>
+
+</section>
+
+
+<section class="technologies">
+
+    <h2>Technologies Used</h2>
+
+    <div class="tech-list">
+
+        <span>Python</span>
+        <span>Django</span>
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>JavaScript</span>
+        <span>Git</span>
+        <span>PostgreSQL</span>
+
+    </div>
+
+</section>
+
+
+<section class="contact-section">
+
+    <h2>Get In Touch</h2>
+
+    <p>
+       Interested in my work or have a project in mind? I'd be happy to hear from you.
+    </p>
+
+    <a href="{% url 'blog:contact' %}" class="contact-btn">
+        Contact
+    </a>
+
+</section>
+
+{% endblock %}

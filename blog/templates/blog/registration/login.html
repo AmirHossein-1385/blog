@@ -1,0 +1,24 @@
+{% extends 'parent/base.html' %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="login_container">
+    <form method="post" class="login_form">
+        <div class="form_title">Login Here</div>
+        {% csrf_token %}
+        <div class="login_content">
+            <label class="login_username_title">Username</label>
+            <input type="text" class="login_username" name="username">
+            <label class="login_password_title">Password</label>
+            <input type="password" class="login_password", name="password">
+            <input type="hidden" name="next" value="{{ next }}">
+            <input type="submit" value="Submit" class="login_submit" name="submit">
+            <input type="hidden" name="next" value="{{ next }}">
+            <p><a class="forgot-password" href="{% url 'blog:password_reset' %}">ایا رمز خود را فراموش کرده اید؟</a></p>
+        </div>
+    </form>
+    </div>
+
+
+{% endblock %}

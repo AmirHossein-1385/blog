@@ -1,0 +1,34 @@
+<div class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <h2 class="footer-title">Blog</h2>
+            <p class="footer-text">Discover articles about programming and technology.</p>
+        </div>
+        <div class="footer-mid">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="{% url 'blog:index' %}">Home</a>
+                <a href="{% url 'blog:popular_posts' %}">Popular Posts</a>
+                <a href="{% url 'blog:ticket' %}">Ticket</a>
+                <a href="{% url 'blog:contact' %}">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h3>Categories</h3>
+                <a href="{% url 'blog:post_list_category' 'تکنولوژی' %}">تکنولوژی </a>
+                <a href="{% url 'blog:post_list_category' 'زبان برنامه نویسی' %}">زبان برنامه نویسی</a>
+                <a href="{% url 'blog:post_list_category' 'هوش مصنوعی' %}">هوش مصنوعی</a>
+                <a href="{% url 'blog:post_list_category' 'بلاکچین' %}">بلاکچین</a>
+                <a href="{% url 'blog:post_list_category' 'سایر' %}">سایر</a>
+            </div>
+            <div class="footer-links">
+                <h3>Contact</h3>
+                <a href="https://github.com/AmirHossein-1385/">GitHub</a>
+                <a href="#">Email</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Blog. All rights reserved</div>
+            <div>Built with Django & Python 🚀</div>
+        </div>
+    </div>
+</div>

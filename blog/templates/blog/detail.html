@@ -1,0 +1,71 @@
+{% extends 'parent/base.html' %}
+{% load jformat %}
+{% load blog_tags %}
+{% block title %}post detail{% endblock %}
+{% block content %}
+<div class="post_detail">
+
+    <h1 class="post_detail_title">Post Detail</h1>
+
+    <h2 class="post_title">
+        {{ post.title }}
+    </h2>
+
+    <div class="post_meta">
+        <span>By <strong>{{ post.author }}</strong></span>
+        <span>•</span>
+        <span>{{ post.publish|jformat:"%Y/%m/%d - %H:%M" }}</span>
+    </div>
+
+    <div class="post_image">
+        {% for img in post.images.all %}
+            <img src="{{ img.image_file.url }}" alt="{{ img.title }}">
+        {% empty %}
+            <p>No image available.</p>
+        {% endfor %}
+    </div>
+
+    <div class="post_description">
+        {{ post.description|markdown }}
+    </div>
+
+</div>
+
+
+<div class="comment">
+
+    <h3 class="comment_title">Leave a Comment</h3>
+
+    <form method="post" action="{% url 'blog:post_comment' post.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit" class="comment_submit">
+    </form>
+
+</div>
+
+
+<div class="comment_count">
+    {% with comments.count as cm_count %}
+        {{ cm_count }} Comment{{ cm_count|pluralize }}
+    {% endwith %}
+</div>
+
+
+{% for cm in comments %}
+    <div class="comment_person">
+
+        <div class="person_name">
+            {{ cm.name }}
+        </div>
+
+        <div class="person_comment">
+            {{ cm.body|linebreaks|censorship }}
+        </div>
+
+    </div>
+{% empty %}
+    <p class="no_comment">No comments yet.</p>
+{% endfor %}
+{% endblock %}

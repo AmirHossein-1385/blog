@@ -1,0 +1,26 @@
+{% extends 'parent/base.html' %}
+{% load blog_tags %}
+{% load i18n %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="main_top">
+        <div class="main_text">
+            <h2 class="main_text_title">Discover Something New</h2>
+            <p class="main_text_description">Welcome to a place where ideas, knowledge, and inspiration come together.
+                Explore carefully selected articles across a wide range of topics, discover fresh perspectives,
+                and enjoy content created to inform, educate, and inspire every reader. Whether you're here to learn
+                something new or simply enjoy a good read, there's always something waiting for you.</p>
+        </div>
+        <div class="random_post">
+            {% random_post as post%}
+            <a href="{{ post.get_absolute_url }}"><img src="{{ post.images.first.image_file.url }}", alt="{{ post.title }}" class="random_post_image"></a>
+        </div>
+    </div>
+</div>
+    <div class="latest_posts_container">
+        <div class="container">
+            {% latest_posts 3 %}
+        </div>
+    </div>
+{% endblock %}
