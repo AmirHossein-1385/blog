@@ -1,0 +1,34 @@
+{% extends 'parent/base.html' %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<div class="search-container">
+    {% if query %}
+        <div class="search-header">
+            <h1>Search Results</h1>
+            <p>{{ results.count }} result{{ results.count|pluralize }} found for "<strong>{{ query }}</strong>"</p>
+        </div>
+    {% endif %}
+    <div class="search-results">
+        {% for post in results %}
+            <div class="search-card">
+                <h2>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <p>
+                    {{ post.description|truncatewords:30 }}
+                </p>
+                <a href="{{ post.get_absolute_url }}" class="read-more">
+                    Read More →
+                </a>
+            </div>
+        {% empty %}
+            <div class="no-result">
+                <h2>No Results Found</h2>
+                <p>Try searching with different keywords.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

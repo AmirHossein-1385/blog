@@ -1,0 +1,25 @@
+{% extends 'parent/base.html' %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block content %}
+   <div class="register_container">
+    <form method="post" class="register_form">
+        {% csrf_token %}
+        <h2 class="register_title">Create Account</h2>
+        {% for field in form %}
+            <div class="form_group">
+                <label>{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <small class="form_error">
+                        {{ field.errors|striptags }}
+                    </small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Sign Up" class="register_submit">
+    </form>
+</div>
+
+{% endblock %}

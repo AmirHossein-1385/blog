@@ -1,0 +1,41 @@
+{% extends 'parent/base.html' %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}Create Post{% endblock %}
+{% block content %}
+<div class="post-form-container">
+    <h1>ایجاد پست</h1>
+    <p>اطلاعات پست خود را وارد یا ویرایش کنید.</p>
+    <form method="post" enctype="multipart/form-data" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="ثبت پست" class="post-submit">
+    </form>
+</div>
+{% if post.images.all %}
+    <h2 class="text_image_edit">تصاویر پست</h2>
+    <div class="image_edit">
+        {% for img in post.images.all %}
+            <div class="image_delete">
+                <img src="{{ img.image_file.url }}" alt="{{ img.title }}">
+                <a href="{% url 'blog:delete_image' img.id %}" class="delete-image-btn">
+                    حذف تصویر
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if form.errors %}
+    <div class="form-errors">
+        <h3>لطفاً خطاهای زیر را اصلاح کنید:</h3>
+        {% for field in form %}
+            {% for error in field.errors %}
+                <p>{{ field.label }} : {{ error }}</p>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

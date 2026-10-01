@@ -1,0 +1,72 @@
+{% extends 'parent/base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<section class="contact-container">
+
+    <div class="contact-header">
+        <h1>Contact Me</h1>
+        <p>
+            Interested in my work or have a project in mind? I'd be happy to hear from you.
+        </p>
+    </div>
+
+    <div class="contact-content">
+
+        <div class="contact-info">
+
+            <h2>Contact Information</h2>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <strong>Email</strong>
+                    <p>Arhn85555@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-brands fa-github"></i>
+                <div>
+                    <strong>GitHub</strong>
+                    <a href="https://github.com/AmirHossein-1385">
+                        https://github.com/AmirHossein-1385
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <strong>Location</strong>
+                    <p>Mashhad, Iran</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact-form">
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button type="submit" class="contact-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+```

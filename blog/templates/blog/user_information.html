@@ -1,0 +1,40 @@
+{% extends 'parent/base.html' %}
+{% block title %}User Information{% endblock %}
+{% block content %}
+    <div class="author-card">
+
+    <div class="author-avatar">
+        {{ user.username|first|upper }}
+    </div>
+
+    <h2 class="author-title">Author Information</h2>
+
+    <div class="author-info">
+        <div class="info-item">
+            <span class="label">Username</span>
+            <span class="value">{{ user.username }}</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">Last Name</span>
+            <span class="value">
+                {% if user.last_name %}
+                    {{ user.last_name }}
+                {% else %}
+                    -
+                {% endif %}
+            </span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">Email</span>
+            {% if user.email %}
+                {{ user.email }}
+                {% else %}
+                    -
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
