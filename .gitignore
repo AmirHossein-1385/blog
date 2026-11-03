@@ -16,29 +16,33 @@ ENV/
 db.sqlite3
 db.sqlite3-journal
 local_settings.py
+staticfiles/
 
 # Environment Variables
 .env
 .env.*
+!.env.example
 
 # IDE
 .idea/
 .vscode/
+*.iml
+*.iws
+*.ipr
 
 # OS
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# PyCharm
-*.iml
-*.iws
-*.ipr
-
-# Coverage
+# Coverage and Testing
 .coverage
 .coverage.*
 htmlcov/
 .pytest_cache/
 
+# Other
 identifier.sqlite
+
+# Database backups
+*.sql

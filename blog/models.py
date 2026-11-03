@@ -1,6 +1,6 @@
 import jdatetime
 from django.db import models
-from django.db.models import CharField, OneToOneRel, OneToOneField
+from django.db.models import OneToOneField
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django_jalali.db import models as jmodels
