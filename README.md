@@ -206,3 +206,13 @@ The following environment variables are used:
 This project serves as a practical Django portfolio application, demonstrating the implementation of common backend development concepts and web application features.
 
 It is intended for educational and portfolio purposes and can be extended with additional features in the future.
+
+## 👨‍💻 Developer
+
+**AmirHossein Taghipour**
+
+Junior Python Backend Developer
+
+[GitHub Profile](https://github.com/AmirHossein-1385)
+
+---
