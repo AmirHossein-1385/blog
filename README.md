@@ -207,6 +207,32 @@ This project serves as a practical Django portfolio application, demonstrating t
 
 It is intended for educational and portfolio purposes and can be extended with additional features in the future.
 
+
+## Screenshots
+
+### Home Page
+![Home](screenshots/home.png)
+
+### Posts Page
+![Posts](screenshots/posts.png)
+
+### Post Detail Page
+![Post Detail](screenshots/post%20detail.png)
+
+### Profile Page
+![Profile](screenshots/profile.png)
+
+### Ticket Page
+![Ticket](screenshots/ticket.png)
+
+### User Information Page
+![User Information](screenshots/user%20information.png)
+
+### Register Page
+![Register](screenshots/register.png)
+
+### Login Page
+![Login](screenshots/login.png)
 ## 👨‍💻 Developer
 
 **AmirHossein Taghipour**
@@ -214,5 +240,3 @@ It is intended for educational and portfolio purposes and can be extended with a
 Junior Python Backend Developer
 
 [GitHub Profile](https://github.com/AmirHossein-1385)
-
----
